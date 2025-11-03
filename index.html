@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>موقع الدكتور محمد وليد - كتاب التمريض</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- شاشة الترحيب -->
+  <div id="welcome" class="welcome">
+    <div class="welcome-inner">
+      <h1>مرحبًا بكم في موقع الدكتور محمد وليد</h1>
+      <p>📘 كتاب التمريض الشامل — تعلّم خطوة بخطوة مع صور وروابط مفيدة</p>
+    </div>
+  </div>
+
+  <!-- محتوى الكتاب (مخفي أولاً) -->
+  <div id="bookSection" class="hidden">
+    <header class="site-header">
+      <div class="brand">
+        <h2>د. محمد وليد</h2>
+        <p>كتاب التمريض الشامل — 100 صفحة</p>
+      </div>
+      <div class="controls-top">
+        <input id="gotoInput" type="number" min="1" max="100" placeholder="اذهب الى صفحة رقم..." />
+        <button id="gotoBtn">اذهب</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <aside class="toc">
+        <h3>فهرس (عناوين سريعة)</h3>
+        <ul id="tocList"></ul>
+        <div class="share-line">
+          <button id="downloadPdf">تحميل PDF (نسخة مختصرة)</button>
+        </div>
+      </aside>
+
+      <section class="page-area">
+        <div id="page" class="page"></div>
+
+        <div class="page-actions">
+          <button id="prevPage">⬅ الصفحة السابقة</button>
+          <span id="pageCounter"></span>
+          <button id="nextPage">الصفحة التالية ➡</button>
+        </div>
+
+        <div id="resources" class="resources"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- زر واتساب عائم -->
+  <a id="whatsappBtn" class="whatsapp-btn" href="https://wa.me/201028792185" target="_blank" rel="noopener">
+    تواصل عبر واتساب
+  </a>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
