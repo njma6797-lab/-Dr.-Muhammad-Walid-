@@ -1,144 +1,128 @@
 :root{
-  --bg1: #0f1724;
-  --panel: rgba(255,255,255,0.04);
-  --accent: #c9a24a; /* ذهبي أنيق */
-  --muted: #bfcbdc;
-  --card-shadow: 0 6px 20px rgba(3,11,30,0.6);
-  --maxwidth: 1100px;
+  --bg:#050507;
+  --panel: rgba(255,255,255,0.03);
+  --gold:#c9a24a;
+  --silver:#b8c0c8;
+  --muted:#c9d3dd;
+  --accent:#fff8eb;
+  --maxw:1100px;
+  --shadow: 0 12px 40px rgba(0,0,0,0.6);
 }
 *{box-sizing:border-box}
+html,body{height:100%}
 body{
   margin:0;
-  font-family: "Cairo", Arial, sans-serif;
-  background: linear-gradient(180deg, #0b1220, #10223a);
-  color:#eef2f7;
-  min-height:100vh;
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
-  padding:20px;
-}
-
-/* شاشة الترحيب */
-.welcome{
-  position:fixed;
-  inset:0;
-  background: linear-gradient(135deg, #081028, #12213a);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:60;
-  transition:opacity .9s ease;
-}
-.welcome-inner{
-  text-align:center;
-  padding:30px 28px;
-  border-radius:14px;
-  background: rgba(255,255,255,0.03);
-  box-shadow: var(--card-shadow);
-  border:1px solid rgba(201,162,74,0.12);
-}
-.welcome h1{ margin:0 0 8px; font-size:28px; color:var(--accent); text-shadow:0 0 8px rgba(201,162,74,0.3); }
-.welcome p{ margin:0; color:var(--muted) }
-
-/* إخفاء */
-.hidden{ display:none !important; }
-.fade-out{ opacity:0; pointer-events:none }
-
-/* الصفحة الرئيسية للكتاب */
-.site-header{
-  width:100%;
-  max-width:var(--maxwidth);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  margin-bottom:18px;
-}
-.brand h2{ margin:0; color:var(--accent); }
-.brand p{ margin:0; color:var(--muted); font-size:14px; }
-
-/* المحتوى الرئيسي */
-.main{
-  width:100%;
-  max-width:var(--maxwidth);
-  display:grid;
-  grid-template-columns: 260px 1fr;
-  gap:20px;
-}
-
-/* فهرس */
-.toc{
-  background:var(--panel);
-  padding:14px;
-  border-radius:12px;
-  box-shadow: var(--card-shadow);
-}
-.toc h3{ margin:0 0 8px; color:var(--accent) }
-.toc ul{ list-style:none; padding:0; margin:0; max-height:68vh; overflow:auto }
-.toc li{ padding:8px 6px; border-radius:6px; color:var(--muted); cursor:pointer; }
-.toc li:hover{ background: rgba(255,255,255,0.02); color:#fff }
-
-/* منطقة الصفحة */
-.page-area{ display:flex; flex-direction:column; gap:12px }
-.page{
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  padding:22px;
-  border-radius:12px;
-  box-shadow: var(--card-shadow);
-}
-.page h2{ margin-top:0; color:var(--accent) }
-.page p{ color:var(--muted); line-height:1.7 }
-.page img{ width:100%; max-width:680px; border-radius:10px; margin-top:12px; box-shadow:0 8px 30px rgba(0,0,0,0.6) }
-
-.page-actions{ display:flex; align-items:center; justify-content:center; gap:12px }
-.page-actions button{
-  background:transparent;
-  border:1px solid rgba(255,255,255,0.06);
-  padding:10px 16px;
-  border-radius:10px;
-  color:#fff;
-  cursor:pointer;
-}
-#pageCounter{ color:var(--muted) }
-
-/* الموارد */
-.resources{
-  background:var(--panel);
-  padding:12px;
-  border-radius:12px;
-  color:var(--muted);
-  box-shadow: var(--card-shadow);
-}
-.resources a{
-  display:inline-block;
-  margin-right:8px;
-  margin-bottom:6px;
+  font-family: "Cairo", "Segoe UI", Tahoma, sans-serif;
+  background: linear-gradient(180deg,#000204 0%, #0b0b10 60%);
   color:var(--accent);
-  text-decoration:none;
-  border-bottom:1px dashed rgba(201,162,74,0.25);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
-/* زر واتساب */
-.whatsapp-btn{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  background:linear-gradient(45deg,#25D366,#128C7E);
-  color:#fff;
-  padding:12px 16px;
-  border-radius:50px;
-  text-decoration:none;
-  box-shadow:0 8px 30px rgba(18,140,126,0.3);
-  z-index:80;
-  font-weight:700;
+/* ========== WELCOME ========== */
+.welcome{
+  position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+  z-index:100; background:linear-gradient(180deg, rgba(2,2,6,0.95), rgba(6,6,10,0.9));
 }
 
-/* استجابة موبايل */
-@media (max-width:900px){
-  .main{ grid-template-columns: 1fr; padding:0 8px }
+.welcome-card{
+  width:90%; max-width:720px; text-align:center; padding:34px; border-radius:14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(201,162,74,0.12);
+  position:relative; overflow:hidden;
+}
+
+/* stars */
+.stars { position:absolute; inset:0; pointer-events:none }
+.star{ position:absolute; font-size:18px; color:var(--accent); opacity:0.1 }
+.s1{ top:12%; left:18%; animation:blink 1.6s infinite; }
+.s2{ top:20%; right:14%; animation:blink 2.2s infinite; }
+.s3{ bottom:22%; left:28%; animation:blink 2.8s infinite; }
+.s4{ bottom:10%; right:30%; animation:blink 1.9s infinite; }
+.s5{ top:48%; left:50%; animation:blink 2.5s infinite; }
+@keyframes blink {
+  0%{opacity:0.05; transform:scale(.9)} 50%{opacity:0.95; transform:scale(1.3)} 100%{opacity:0.05; transform:scale(.9)}
+}
+
+/* kiss animation (emoji + heart) */
+.kiss-area{ display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:8px; height:36px }
+.face{ font-size:34px; transform-origin:center; animation:faceMove 1.2s infinite; opacity:0.95 }
+.heart{ font-size:20px; color:#ff6b81; transform-origin:center; animation:heartFly 1.2s infinite; position:relative; top:-6px }
+@keyframes faceMove { 0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)} }
+@keyframes heartFly { 0%{opacity:0; transform:translateX(0) scale(.6)} 30%{opacity:1; transform:translateX(-14px) scale(1)} 100%{opacity:0; transform:translateX(-34px) scale(.4)} }
+
+.welcome-title{ margin:6px 0 4px; color:var(--gold); font-size:28px; letter-spacing:0.6px; text-shadow:0 6px 18px rgba(201,162,74,0.12) }
+.welcome-sub{ margin:0; color:var(--muted) }
+
+/* fade out helper */
+.fade-out{ opacity:0; transition:opacity .9s ease; pointer-events:none}
+
+/* ========== APP LAYOUT ========== */
+.hidden{ display:none !important; }
+
+.app{ max-width:var(--maxw); margin:34px auto; padding:18px; width:100%; }
+
+/* topbar */
+.topbar{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+.brand h2{ margin:0; color:var(--gold); font-size:20px }
+.byline{ margin:0; color:var(--muted) }
+
+/* add note button top-right */
+.top-actions button{ background:transparent; color:var(--accent); border:1px solid rgba(255,255,255,0.04); padding:8px 12px; border-radius:10px; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,0.5)}
+
+/* main columns */
+.main{ display:grid; grid-template-columns:260px 1fr; gap:20px; align-items:start; }
+
+/* toc */
+.toc{ background:var(--panel); padding:14px; border-radius:12px; box-shadow:var(--shadow); max-height:72vh; overflow:auto; border:1px solid rgba(255,255,255,0.02) }
+.toc h3{ margin:0 0 8px; color:var(--gold) }
+.toc ul{ list-style:none; padding:0; margin:0 }
+.toc li{ padding:8px 6px; color:var(--muted); cursor:pointer; border-radius:8px }
+.toc li:hover{ background:rgba(255,255,255,0.02); color:var(--accent) }
+
+/* reader */
+.reader{ display:flex; flex-direction:column; gap:12px }
+.page{ background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:24px; border-radius:12px; box-shadow:var(--shadow); color:var(--accent); min-height:320px }
+.page h2{ margin-top:0; color:var(--gold) }
+.page p{ color:var(--muted); line-height:1.8; text-align:justify }
+
+/* image */
+.page img{ width:100%; max-width:740px; border-radius:10px; margin-top:14px; box-shadow:0 8px 40px rgba(0,0,0,0.5) }
+
+/* controls */
+.controls{ display:flex; align-items:center; justify-content:center; gap:12px; margin-top:6px }
+.nav{ background:transparent; border:1px solid rgba(255,255,255,0.05); padding:10px 16px; border-radius:10px; color:var(--accent); cursor:pointer }
+.page-info{ color:var(--muted) }
+
+/* actions row */
+.actions-row{ display:flex; justify-content:center; gap:12px; margin-top:6px }
+.like{ background:linear-gradient(45deg,#2b2b2b,#0d0d0d); border:1px solid rgba(255,255,255,0.03); color:var(--gold); padding:10px 16px; border-radius:10px; cursor:pointer; box-shadow:0 8px 30px rgba(201,162,74,0.06) }
+.like span{ margin-left:8px; color:var(--muted) }
+
+/* resources */
+.resources{ background:var(--panel); padding:12px; border-radius:10px; color:var(--muted); margin-top:8px }
+
+/* modal */
+.modal{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; z-index:120; background:rgba(0,0,0,0.5) }
+.modal-card{ width:90%; max-width:560px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px; border-radius:12px; box-shadow:var(--shadow) }
+.modal-card h3{ margin:0 0 8px; color:var(--gold) }
+.modal-card textarea{ width:100%; min-height:120px; padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,0.03); background:transparent; color:var(--accent) }
+.modal-actions{ display:flex; gap:10px; justify-content:flex-end; margin-top:8px }
+.modal-actions button{ padding:8px 12px; border-radius:8px; cursor:pointer }
+#saveNote{ background:linear-gradient(45deg,#c9a24a,#d4af37); color:#111; border:none }
+#closeNote{ background:transparent; border:1px solid rgba(255,255,255,0.04); color:var(--accent) }
+.note-msg{ margin-top:8px; color:var(--muted) }
+
+/* whatsapp */
+.whatsapp{ position:fixed; right:18px; bottom:18px; background:linear-gradient(45deg,#25D366,#128C7E); color:white; padding:12px 16px; border-radius:999px; text-decoration:none; box-shadow:0 12px 40px rgba(18,140,126,0.3); font-weight:700; z-index:120; transform:translateY(0); transition:transform .4s ease }
+.whatsapp.hidden{ display:none !important }
+
+/* responsive */
+@media (max-width:980px){
+  .main{ grid-template-columns: 1fr; }
   .toc{ order:2 }
-  .page-area{ order:1 }
-  .site-header{ flex-direction:column; align-items:flex-start; gap:8px }
-  .whatsapp-btn{ right:12px; left:auto; bottom:12px }
+  .reader{ order:1 }
+  .welcome-card{ padding:20px }
+  .kiss-area{ display:none }
 }
