@@ -8,7 +8,7 @@
 </head>
 <body>
   <!-- شاشة الترحيب -->
-  <div id="welcome" class="welcome">
+  <div id="welcome" class="welcome" aria-hidden="false">
     <div class="welcome-card">
       <div class="stars" aria-hidden="true">
         <span class="star s1">✦</span><span class="star s2">✦</span><span class="star s3">✦</span>
@@ -20,13 +20,13 @@
         <div class="heart">❤</div>
       </div>
 
-      <h1 class="welcome-title">مرحبًا بكم في موقع الدكتور محمد وليد</h1>
-      <p class="welcome-sub">📘 موسوعة التمريض الشاملة — تعلّم، طبّق، وتواصل</p>
+      <h1 class="welcome-title">مرحبًا بكم في موسوعة التمريض الشاملة</h1>
+      <p class="welcome-sub">للدكتور <strong>محمد وليد</strong> — تعلّم، طبّق، وشارك</p>
     </div>
   </div>
 
-  <!-- المحتوى -->
-  <div id="app" class="app hidden">
+  <!-- التطبيق -->
+  <div id="app" class="app hidden" aria-hidden="true">
     <header class="topbar">
       <div class="brand">
         <h2>📘 موسوعة التمريض الشاملة</h2>
@@ -34,12 +34,13 @@
       </div>
 
       <div class="top-actions">
+        <button id="toggleToc" title="عرض/إخفاء الفهرس">فهرس</button>
         <button id="addNoteBtn" title="إضافة ملاحظة">🗒️ إضافة ملاحظة</button>
       </div>
     </header>
 
     <main class="main">
-      <aside class="toc">
+      <aside id="toc" class="toc" aria-label="فهرس المحتوى">
         <h3>فهرس الصفحات</h3>
         <ul id="tocList"></ul>
       </aside>
@@ -57,19 +58,19 @@
           <button id="likeBtn" class="like">♡ أعجبني <span id="likeCount">0</span></button>
         </div>
 
-        <div id="resources" class="resources"></div>
+        <div id="resources" class="resources" aria-live="polite"></div>
       </section>
     </main>
   </div>
 
   <!-- نافذة إضافة ملاحظة -->
-  <div id="noteModal" class="modal hidden" role="dialog" aria-modal="true">
+  <div id="noteModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="noteTitle">
     <div class="modal-card">
-      <h3>أضف ملاحظة</h3>
+      <h3 id="noteTitle">أضف ملاحظة</h3>
       <textarea id="noteText" placeholder="اكتب ملاحظتك هنا..."></textarea>
       <div class="modal-actions">
         <button id="saveNote">حفظ الملاحظة</button>
-        <button id="closeNote">إلغاء</button>
+        <button id="closeNote">إغلاق</button>
       </div>
       <div id="noteMsg" class="note-msg"></div>
     </div>
