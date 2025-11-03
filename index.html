@@ -1,49 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>موقع الدكتور محمد وليد - كتاب التمريض</title>
+  <title>موسوعة التمريض الشاملة - د. محمد وليد</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- شاشة الترحيب -->
   <div id="welcome" class="welcome">
-    <div class="welcome-inner">
-      <h1>مرحبًا بكم في موقع الدكتور محمد وليد</h1>
-      <p>📘 كتاب التمريض الشامل — تعلّم خطوة بخطوة مع صور وروابط مفيدة</p>
+    <div class="welcome-card">
+      <div class="stars" aria-hidden="true">
+        <span class="star s1">✦</span><span class="star s2">✦</span><span class="star s3">✦</span>
+        <span class="star s4">✦</span><span class="star s5">✦</span>
+      </div>
+
+      <div class="kiss-area" aria-hidden="true">
+        <div class="face">🙂</div>
+        <div class="heart">❤</div>
+      </div>
+
+      <h1 class="welcome-title">مرحبًا بكم في موقع الدكتور محمد وليد</h1>
+      <p class="welcome-sub">📘 موسوعة التمريض الشاملة — تعلّم، طبّق، وتواصل</p>
     </div>
   </div>
 
-  <!-- محتوى الكتاب (مخفي أولاً) -->
-  <div id="bookSection" class="hidden">
-    <header class="site-header">
+  <!-- المحتوى -->
+  <div id="app" class="app hidden">
+    <header class="topbar">
       <div class="brand">
-        <h2>د. محمد وليد</h2>
-        <p>كتاب التمريض الشامل — 100 صفحة</p>
+        <h2>📘 موسوعة التمريض الشاملة</h2>
+        <div class="byline">للدكتور <strong>محمد وليد</strong></div>
       </div>
-      <div class="controls-top">
-        <input id="gotoInput" type="number" min="1" max="100" placeholder="اذهب الى صفحة رقم..." />
-        <button id="gotoBtn">اذهب</button>
+
+      <div class="top-actions">
+        <button id="addNoteBtn" title="إضافة ملاحظة">🗒️ إضافة ملاحظة</button>
       </div>
     </header>
 
     <main class="main">
       <aside class="toc">
-        <h3>فهرس (عناوين سريعة)</h3>
+        <h3>فهرس الصفحات</h3>
         <ul id="tocList"></ul>
-        <div class="share-line">
-          <button id="downloadPdf">تحميل PDF (نسخة مختصرة)</button>
-        </div>
       </aside>
 
-      <section class="page-area">
-        <div id="page" class="page"></div>
+      <section class="reader">
+        <article id="page" class="page" aria-live="polite"></article>
 
-        <div class="page-actions">
-          <button id="prevPage">⬅ الصفحة السابقة</button>
-          <span id="pageCounter"></span>
-          <button id="nextPage">الصفحة التالية ➡</button>
+        <div class="controls">
+          <button id="prevPage" class="nav">⬅ السابقة</button>
+          <div class="page-info"><span id="pageCounter"></span></div>
+          <button id="nextPage" class="nav">التالية ➡</button>
+        </div>
+
+        <div class="actions-row">
+          <button id="likeBtn" class="like">♡ أعجبني <span id="likeCount">0</span></button>
         </div>
 
         <div id="resources" class="resources"></div>
@@ -51,9 +62,22 @@
     </main>
   </div>
 
-  <!-- زر واتساب عائم -->
-  <a id="whatsappBtn" class="whatsapp-btn" href="https://wa.me/201028792185" target="_blank" rel="noopener">
-    تواصل عبر واتساب
+  <!-- نافذة إضافة ملاحظة -->
+  <div id="noteModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <h3>أضف ملاحظة</h3>
+      <textarea id="noteText" placeholder="اكتب ملاحظتك هنا..."></textarea>
+      <div class="modal-actions">
+        <button id="saveNote">حفظ الملاحظة</button>
+        <button id="closeNote">إلغاء</button>
+      </div>
+      <div id="noteMsg" class="note-msg"></div>
+    </div>
+  </div>
+
+  <!-- زر واتساب (مخفي أثناء الترحيب) -->
+  <a id="whatsappBtn" class="whatsapp hidden" href="https://wa.me/201028792185" target="_blank" rel="noopener">
+    تواصل مع الطبيب محمد وليد
   </a>
 
   <script src="script.js" defer></script>
